@@ -1,0 +1,411 @@
+1) Install MongoDB "https://docs.mongodb.com/v3.2/tutorial/install-mongodb-on-red-hat/"
+2) Create DB : use eCN_Dashboard; use eCN_Dashboard; show dbs;
+3) Create Collection and insert document : 
+
+
+var myDate = new Date(1982, 8, 22, 00, 00);
+
+db.ActivityData.insert({
+   TPID: 120003,
+   ClientID: 100001,
+   UserID: 228140, 
+   SystemPatientID: 'DFCCASD-ED45SF-CSFR45-CSFSFRE34-DFSRFR45TH',
+   ActivityID: 28,
+   ActivityDescription: 'Activity Description',
+   ActivityValue: 'Activity Value',
+   Score: 1478065155.0,
+   DateTimestamp: myDate,
+   ActivityMessage: 'Activity Message',
+   SourceMachine: 'Source Machine'
+})
+
+
+db.ActivityData.insert({
+   TPID: 120004,
+   ClientID: 100002,
+   UserID: 228141, 
+   SystemPatientID: 'DFCCASD-ED45SF-CSFR45-CSFSFRE34-DFSRFR45TH',
+   ActivityID: 29,
+   ActivityDescription: 'Activity Description 1',
+   ActivityValue: 'Activity Value 1',
+   Score: 1478065155.0,
+   DateTimestamp: myDate,
+   ActivityMessage: 'Activity Message 1',
+   SourceMachine: 'Source Machine 1'
+})
+
+db.ActivityData.insert({
+   TPID: 120005,
+   ClientID: 100003,
+   UserID: 228142, 
+   SystemPatientID: 'DFCCASD-ED45SF-CSFR45-CSFSFRE34-DFSRFR45TH',
+   ActivityID: 30,
+   ActivityDescription: 'Activity Description 2',
+   ActivityValue: 'Activity Value 2',
+   Score: 1478065155.3,
+   DateTimestamp: myDate,
+   ActivityMessage: 'Activity Message 2',
+   SourceMachine: 'Source Machine 2'
+})
+
+db.ActivityData.insert({
+   TPID: 120006,
+   ClientID: 100004,
+   UserID: 228143, 
+   SystemPatientID: 'DFCCASD-ED45SF-CSFR45-CSFSFRE34-DFSRFR45TH',
+   ActivityID: 30,
+   ActivityDescription: 'Activity Description 4',
+   ActivityValue: 'Activity Value 4',
+   Score: 1478065155.4,
+   DateTimestamp: myDate,
+   ActivityMessage: 'Activity Message 4',
+   SourceMachine: 'Source Machine 4'
+})
+
+db.ActivityData.insert({
+   TPID: 120007,
+   ClientID: 100007,
+   UserID: 228144, 
+   SystemPatientID: 'DFCCASD-ED45SF-CSFR45-CSFSFRE34-DFSRFR45TH',
+   ActivityID: 31,
+   ActivityDescription: 'Activity Description 5',
+   ActivityValue: 'Activity Value 5',
+   Score: 1478065155.5,
+   DateTimestamp: myDate,
+   ActivityMessage: 'Activity Message 5',
+   SourceMachine: 'Source Machine 5'
+})
+
+db.ClientData.insert({
+   ClientID: 100001,
+   UserID: 228140, 
+   ClientName: 'John Doe',
+   ClientScore: 1478065155.0,
+   ClientBDay: myDate,
+   ClientAddress: '3232 Avalon Dr, Acton,MA'
+})
+
+db.ClientData.insert({
+   ClientID: 100002,
+   UserID: 228141, 
+   ClientName: 'Jay Kumar',
+   ClientScore: 1478065155.3,
+   ClientBDay: myDate,
+   ClientAddress: '3231 Avalon Dr, Acton,MA'
+})
+
+db.ClientData.insert({
+   ClientID: 100003,
+   UserID: 228142, 
+   ClientName: 'Ranjeeta Pegu',
+   ClientScore: 1478065155.4,
+   ClientBDay: myDate,
+   ClientAddress: '3233 Avalon Dr, Acton,MA'
+})
+
+db.ActivityDataBSON.insert({
+   TPID: 120003,
+   ClientID: 100001,
+   UserID: 228140, 
+   SystemPatientID: 'DFCCASD-ED45SF-CSFR45-CSFSFRE34-DFSRFR45TH',
+   ActivityID: 28,
+   ActivityDescription: 'Activity Description',
+   ActivityValue: 'Activity Value',
+   Score: 1478065155.0,
+   DateTimestamp: myDate,
+   ActivityMessage: 'Activity Message',
+   SourceMachine: 'Source Machine'
+})
+
+
+db.ActivityDataBSON.insert({
+   TPID: 120004,
+   ClientID: 100002,
+   UserID: 228141, 
+   SystemPatientID: 'DFCCASD-ED45SF-CSFR45-CSFSFRE34-DFSRFR45TH',
+   ActivityID: 29,
+   ActivityDescription: 'Activity Description 1',
+   ActivityValue: 'Activity Value 1',
+   Score: 1478065155.0,
+   DateTimestamp: myDate,
+   ActivityMessage: 'Activity Message 1',
+   SourceMachine: 'Source Machine 1'
+})
+
+db.ActivityDataBSON.insert({
+   TPID: 120005,
+   ClientID: 100003,
+   UserID: 228142, 
+   SystemPatientID: 'DFCCASD-ED45SF-CSFR45-CSFSFRE34-DFSRFR45TH',
+   ActivityID: 30,
+   ActivityDescription: 'Activity Description 2',
+   ActivityValue: 'Activity Value 2',
+   Score: 1478065155.3,
+   DateTimestamp: myDate,
+   ActivityMessage: 'Activity Message 2',
+   SourceMachine: 'Source Machine 2'
+})
+
+
+4) Find document :
+
+db.ActivityData.find();
+db.ActivityData.find({TPID:120004});
+show dbs;
+db;
+show collections;
+
+
+Hive :
+
+1)Follow this to install conector : "https://github.com/mongodb/mongo-hadoop/wiki/Hive-Usage".
+2) Download mongo-java-driver-3.4.0.jar from "https://oss.sonatype.org/content/repositories/releases/org/mongodb/mongo-java-driver/3.4.0/" and verify using md5 from same site. 
+3) Downlaod "mongo-hadoop-core-2.0.1.jar" from "http://repo1.maven.org/maven2/org/mongodb/mongo-hadoop/mongo-hadoop-core/2.0.1/" and verify using md5 from same site.
+4) Download "mongo-hadoop-hive-2.0.1.jar" from "http://repo1.maven.org/maven2/org/mongodb/mongo-hadoop/mongo-hadoop-hive/2.0.1/" and verify using md5 from same site.
+5) Put all the above jar in local drive and give permission to hive:hive and put in hdfs and give permission. Follow
+procedure using "https://www.cloudera.com/documentation/enterprise/5-8-x/topics/cm_mc_hive_udf.html"
+6)  In your Hive script or beeline, use ADD JAR commands to include these JARs (core, hive, and the Java driver), e.g , 
+ADD JAR /opt/jars/mongo-java-driver-3.4.0.jar; ( all 3). Added jar can be verified by list jars; ( is not mandatory as jars has been permanently added in above step).
+
+set hive.aux.jars.path; 
+
+list jars;
+
+Connecting to MongoDB - MongoStorageHandler
+---------------------------------------------
+mjaykumar
+
+ 7) Create table - managed and external
+
+non native managed table 
+
+CREATE TABLE actdata
+( 
+  id STRING,
+  tpid INT,
+  clientid INT,
+  uid INT,
+  spid STRING,
+  actid INT,
+  actdesc STRING,
+  actvalue STRING,
+  score DOUBLE,
+  dt STRING,
+  actmsg STRING,
+  srcmach STRING
+)
+STORED BY 'com.mongodb.hadoop.hive.MongoStorageHandler'
+WITH SERDEPROPERTIES('mongo.columns.mapping'='{"id":"_id","tpid":"TPID","clientid":"ClientID","uid":"UserID","spid":"SystemPatientID","actid":"ActivityID","actdesc":"ActivityDescription","actvalue":"ActivityValue","score":"Score","dt":"DateTimestamp","actmsg":"ActivityMessage","srcmach":"SourceMachine"
+}')
+TBLPROPERTIES('mongo.uri'='mongodb://localhost:27017/eCN_Dashboard.ActivityData');
+
+connection string is "https://docs.mongodb.com/manual/reference/connection-string/"
+NOte : Managed table created like this will delete the underlying Mongo tables if "drop table" comamnd is executed
+
+mongodb://[username:password@]host:27017/eCN_Dashboard.ActivityData
+
+non native external table 
+
+CREATE EXTERNAL TABLE clientdata
+( 
+  id STRING,
+  clientid INT,
+  uid INT,
+  clientname STRING,
+  clientscore DOUBLE,
+  clientbdt STRING,
+  clientaddr STRING
+  )
+STORED BY 'com.mongodb.hadoop.hive.MongoStorageHandler'
+WITH SERDEPROPERTIES('mongo.columns.mapping'='{"id":"_id","clientid":"ClientID","uid":"UserID","clientname":"ClientName","clientscore":"ClientScore","clientbdt":"ClientBDay","clientaddr":"ClientAddress"
+}')
+TBLPROPERTIES('mongo.properties.path'='file:////opt/config/HiveTable.properties');
+
+
+Using BSON files - STORED AS (Specified SerDe, INPUT and OUTPUT)
+----------------------------------------------------------
+
+1) Dump BSON files :
+
+Initial dump :
+
+mongodump --host quickstart --port 27017  --collection  ActivityDataBSON --db eCN_Dashboard --out /home/cloudera/backup/mongodump-2016-20-12
+
+mongodump --host mongodb1.example.net --port 3017 --username user --password pass --out /opt/backup/mongodump-2013-10-24
+
+2)
+
+CREATE EXTERNAL TABLE actdatabson
+( 
+  id STRING,
+  tpid INT,
+  clientid INT,
+  uid INT,
+  spid STRING,
+  actid INT,
+  actdesc STRING,
+  actvalue STRING,
+  score DOUBLE,
+  dt STRING,
+  actmsg STRING,
+  srcmach STRING
+)
+ROW FORMAT SERDE 'com.mongodb.hadoop.hive.BSONSerDe'
+WITH SERDEPROPERTIES('mongo.columns.mapping'='{"id":"_id","tpid":"TPID","clientid":"ClientID","uid":"UserID","spid":"SystemPatientID","actid":"ActivityID","actdesc":"ActivityDescription","actvalue":"ActivityValue","score":"Score","dt":"DateTimestamp","actmsg":"ActivityMessage","srcmach":"SourceMachine"
+}')
+STORED AS INPUTFORMAT 'com.mongodb.hadoop.mapred.BSONFileInputFormat'
+OUTPUTFORMAT 'com.mongodb.hadoop.hive.output.HiveBSONFileOutputFormat'
+LOCATION '/user/cloudera/bson/actdata/'
+
+
+3) Incremental dump :
+
+a) Find the latest or max record in mongodb based on field _id or any filed :
+
+db.ActivityDataBSON.find().sort({_id: -1}).limit(1);  -- will get all the columns of max records
+
+db.ActivityDataBSON.find({},{_id:1 }).sort({_id: -1}).limit(1).pretty(); -- will get only max _id field 
+
+mongo --quiet eCN_Dashboard --eval 'printjson(db.ActivityDataBSON.find({},{_id:1 }).sort({_id: -1}).limit(1).toArray() > output1.json
+
+b) Inserting incremental records :
+
+db.ActivityDataBSON.insert({
+   TPID: 120006,
+   ClientID: 100004,
+   UserID: 228143, 
+   SystemPatientID: 'DFCCASD-ED45SF-CSFR45-CSFSFRE34-DFSRFR45TH',
+   ActivityID: 30,
+   ActivityDescription: 'Activity Description 4',
+   ActivityValue: 'Activity Value 4',
+   Score: 1478065155.3,
+   DateTimestamp: myDate,
+   ActivityMessage: 'Activity Message 4',
+   SourceMachine: 'Source Machine 4'
+})
+
+db.ActivityDataBSON.insert({
+   TPID: 120007,
+   ClientID: 100007,
+   UserID: 228144, 
+   SystemPatientID: 'DFCCASD-ED45SF-CSFR45-CSFSFRE34-DFSRFR45TH',
+   ActivityID: 30,
+   ActivityDescription: 'Activity Description 5',
+   ActivityValue: 'Activity Value 5',
+   Score: 1478065155.3,
+   DateTimestamp: myDate,
+   ActivityMessage: 'Activity Message 5',
+   SourceMachine: 'Source Machine 5'
+})
+
+db.ActivityDataBSON.insert({
+   TPID: 120008,
+   ClientID: 100008,
+   UserID: 228144, 
+   SystemPatientID: 'DFCCASD-ED45SF-CSFR45-CSFSFRE34-DFSRFR45TH',
+   ActivityID: 30,
+   ActivityDescription: 'Activity Description 6',
+   ActivityValue: 'Activity Value 6',
+   Score: 1478065155.3,
+   DateTimestamp: myDate,
+   ActivityMessage: 'Activity Message 6',
+   SourceMachine: 'Source Machine 6'
+})
+db.ActivityDataBSON.insert({
+   TPID: 120009,
+   ClientID: 100009,
+   UserID: 228144, 
+   SystemPatientID: 'DFCCASD-ED45SF-CSFR45-CSFSFRE34-DFSRFR45TH',
+   ActivityID: 30,
+   ActivityDescription: 'Activity Description 7',
+   ActivityValue: 'Activity Value 7',
+   Score: 1478065155.3,
+   DateTimestamp: myDate,
+   ActivityMessage: 'Activity Message 7',
+   SourceMachine: 'Source Machine 7'
+})
+
+latest record of max id is :
+
+db.ActivityDataBSON.find({},{_id:1 }).sort({_id: -1}).limit(1).pretty();
+{ "_id" : ObjectId("5859e4a652c470ecc9b6b69e") }
+
+c) dump/backup incremental records into bson file :
+
+mongodump --host quickstart --port 27017  --collection  ActivityDataBSON --db eCN_Dashboard  
+-q '{_id: {$gt: ObjectId("5858d42d620c0a69d7b61760")}}' --out /home/cloudera/backup/incremental/2016-20-12
+
+d) Load the incremental bson file into hive :
+
+load data local inpath 'file:///home/cloudera/backup/incremental/2016-20-12/eCN_Dashboard/ActivityDataBSON.bson' into table actdatabson; ( no overwrite )
+
+load data local inpath '/home/cloudera/backup/incremental/2016-20-12' overwrite into table actdatabson; ( overwrite )
+
+e) Confirm the incremental load :
+
+select id, tpid from actdata order by id;
+
+
+mongo --quiet eCN_Dashboard --eval 'printjson(db.ActivityDataBSON.find({},{_id:1 }).sort({_id: -1}).limit(1))' > output.json
+
+
+
+8) Query table;
+
+!connect jdbc:hive2://localhost:10000/ (cloudera,cloudera)
+show tblproperties <table_name>;
+list jars;
+set hive.aux.jars.path;
+select id, tpid from actdata order by id;
+  
+
+
+https://www.mongodb.com/blog/post/using-mongodb-hadoop-spark-part-1-introduction-setup
+
+
+----------------------------------------------------------------------------------
+
+MongoDB -- Pig :
+
+Follow : https://github.com/mongodb/mongo-hadoop/wiki/Pig-Usage
+
+1) 
+register /opt/jars/mongo-hadoop-core-2.0.1.jar;
+register /opt/jars/mongo-java-driver-3.4.0.jar;
+register /opt/jars/mongo-hadoop-pig-2.0.1.jar;
+
+clientData = LOAD 'mongodb://quickstart:27017/eCN_Dashboard.ClientData' USING com.mongodb.hadoop.pig.MongoLoader;
+
+clientData_raw = LOAD 'mongodb://quickstart:27017/eCN_Dashboard.ClientData' USING com.mongodb.hadoop.pig.MongoLoader('ClientID:int,UserID:int,ClientName:chararray,ClientScore:double,ClientBDay:chararray,ClientAddress:chararray', 'id');
+> clientData_raw_limited = LIMIT raw 3;
+
+persons = LOAD 'mongodb://localhost/test.persons'
+      USING com.mongodb.hadoop.pig.MongoLoader('name:chararray, department_id:int')
+      AS (person_name, department_id);
+
+
+
+CREATE EXTERNAL TABLE clientdata
+( 
+  id STRING,
+  clientid INT,
+  uid INT,
+  clientname STRING,
+  clientscore DOUBLE,
+  clientbdt STRING,
+  clientaddr STRING
+  )
+STORED BY 'com.mongodb.hadoop.hive.MongoStorageHandler'
+WITH SERDEPROPERTIES('mongo.columns.mapping'='{"id":"_id","clientid":"ClientID","uid":"UserID","clientname":"ClientName","clientscore":"ClientScore","clientbdt":"ClientBDay","clientaddr":"ClientAddress"
+}')
+TBLPROPERTIES('mongo.properties.path'='file:////opt/config/HiveTable.properties');
+
+
+([ClientName#Ranjeeta Pegu,UserID#228142.0,ClientBDay#383990400000,ClientScore#1.4780651554E9,ClientAddress#3233 Avalon Dr, Acton,MA,_id#5858c3dc620c0a69d7b6175b,ClientID#100003.0])
+([ClientName#Jay Kumar,UserID#228141.0,ClientBDay#383990400000,ClientScore#1.4780651553E9,ClientAddress#3231 Avalon Dr, Acton,MA,_id#5858c3ea620c0a69d7b6175c,ClientID#100002.0])
+([ClientName#John Doe,UserID#228140.0,ClientBDay#383990400000,ClientScore#1.478065155E9,ClientAddress#3232 Avalon Dr, Acton,MA,_id#5858c3f6620c0a69d7b6175d,ClientID#100001.0])
+
+
+
+
+
